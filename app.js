@@ -53,3 +53,32 @@ function errorMensajeRestaurar(){
         document.getElementById('password').value='';
     },2000);//para trancision seria fade y shown
 }
+
+function actualizarFechaHora() {
+    // Crear un nuevo objeto de fecha
+    var fechaHoraActual = new Date();
+
+    // Obtener la hora, los minutos y los segundos
+    var hora = fechaHoraActual.getHours();
+    var minutos = fechaHoraActual.getMinutes();
+    var segundos = fechaHoraActual.getSeconds();
+
+    // Obtener el día, mes y año
+    var dia = fechaHoraActual.getDate();
+    var mes = fechaHoraActual.getMonth() + 1; // ¡Recuerda que los meses comienzan desde 0!
+    var año = fechaHoraActual.getFullYear();
+
+    // Formatear la salida
+    var horaFormateada = hora + ":" + minutos + ":" + segundos;
+    var fechaFormateada = dia + "/" + mes + "/" + año;
+
+    // Mostrar la hora y la fecha en el div
+    document.getElementById("hora").textContent = "Hora actual: " + horaFormateada;
+    document.getElementById("fechaActual").textContent = "Fecha actual: " + fechaFormateada;
+}
+
+// Llamar a la función para que se actualice la fecha y la hora al cargar la página
+actualizarFechaHora();
+
+// Actualizar la fecha y la hora cada segundo
+setInterval(actualizarFechaHora, 1000);
